@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="si">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop | Lehan Clothing</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f6f6f6',
+                            950: '#1a1a1a',
+                            500: '#6d6d6d',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-white text-gray-900 antialiased">
+
+    <!-- Reusable Navbar (Dark Theme) -->
+    <nav class="w-full relative z-50 bg-white border-b border-gray-100 sticky top-0 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="index.html" class="text-3xl font-extrabold tracking-tighter uppercase text-brand-950 hover:text-brand-500 transition">Lehan.</a>
+                </div>
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="index.html" class="text-sm font-semibold text-gray-600 hover:text-brand-950 transition">Home</a>
+                    <a href="shop.html" class="text-sm font-semibold text-brand-950 border-b-2 border-brand-950 pb-1">Shop</a>
+                    <a href="about.html" class="text-sm font-semibold text-gray-600 hover:text-brand-950 transition">About Us</a>
+                    <a href="contact.html" class="text-sm font-semibold text-gray-600 hover:text-brand-950 transition">Contact</a>
+                </div>
+                <div class="hidden md:flex items-center space-x-5 text-gray-900">
+                    <a href="#" class="hover:text-brand-500 transition"><i class="fas fa-search text-xl"></i></a>
+                    <a href="#" class="hover:text-brand-500 transition border border-gray-200 rounded-full w-8 h-8 flex items-center justify-center bg-gray-50 relative">
+                        <i class="fas fa-shopping-cart text-sm"></i>
+                    </a>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="focus:outline-none"><i class="fas fa-bars text-2xl"></i></button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <div class="bg-gray-50 py-16 border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-4xl md:text-5xl font-black text-brand-950 uppercase tracking-tight mb-4 fade-in">Our Collection</h1>
+            <p class="text-gray-500 max-w-2xl mx-auto fade-in delay-100">Explore our latest additions. Each piece is crafted with perfection and designed to make a statement.</p>
+        </div>
+    </div>
+
+    <!-- Shop Content -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 flex flex-col md:flex-row gap-10">
+        <!-- Sidebar Filters -->
+        <div class="w-full md:w-1/4 fade-in delay-200">
+            <div class="bg-white p-6 border border-gray-100 sticky top-28 rounded-sm shadow-sm opacity-90">
+                <h3 class="font-bold text-lg uppercase tracking-wider mb-6 pb-4 border-b">Filters</h3>
+                
+                <div class="mb-8">
+                    <h4 class="font-semibold mb-4 text-sm uppercase">Category</h4>
+                    <div class="space-y-2">
+                        <label class="flex items-center space-x-3 cursor-pointer"><input type="checkbox" class="form-checkbox text-brand-950 rounded-sm focus:ring-brand-950 accent-brand-950 w-4 h-4" checked><span class="text-gray-700 text-sm">All</span></label>
+                        <label class="flex items-center space-x-3 cursor-pointer"><input type="checkbox" class="form-checkbox text-brand-950 rounded-sm focus:ring-brand-950 accent-brand-950 w-4 h-4"><span class="text-gray-700 text-sm">Men's</span></label>
+                        <label class="flex items-center space-x-3 cursor-pointer"><input type="checkbox" class="form-checkbox text-brand-950 rounded-sm focus:ring-brand-950 accent-brand-950 w-4 h-4"><span class="text-gray-700 text-sm">Women's</span></label>
+                        <label class="flex items-center space-x-3 cursor-pointer"><input type="checkbox" class="form-checkbox text-brand-950 rounded-sm focus:ring-brand-950 accent-brand-950 w-4 h-4"><span class="text-gray-700 text-sm">Accessories</span></label>
+                    </div>
+                </div>
+
+                <div class="mb-8">
+                    <h4 class="font-semibold mb-4 text-sm uppercase">Price Range</h4>
+                    <input type="range" min="1000" max="15000" value="15000" class="w-full accent-brand-950">
+                    <div class="flex justify-between text-xs text-gray-500 mt-2">
+                        <span>Rs. 1,000</span>
+                        <span>Rs. 15,000+</span>
+                    </div>
+                </div>
+
+                <button class="w-full bg-brand-950 text-white py-3 font-bold uppercase text-sm tracking-wider hover:bg-gray-800 transition rounded-none">Apply Filters</button>
+            </div>
+        </div>
+
+        <!-- Product Grid -->
+        <div class="w-full md:w-3/4 fade-in delay-300">
+            <div class="flex justify-between items-center mb-8 border-b pb-4 border-gray-100">
+                <p class="text-gray-500 text-sm">Showing 1–9 of 24 results</p>
+                <select class="border border-gray-200 text-sm py-2 px-4 focus:outline-none focus:border-brand-950 bg-white">
+                    <option>Default Sorting</option>
+                    <option>Sort by Popularity</option>
+                    <option>Sort by Latest</option>
+                    <option>Sort by Price: Low to High</option>
+                    <option>Sort by Price: High to Low</option>
+                </select>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Product 1 -->
+                <div class="product-card group cursor-pointer inline-block">
+                    <div class="relative w-full h-[24rem] bg-gray-100 overflow-hidden rounded-sm mb-4">
+                        <img src="assets/images/product1.png" alt="T-Shirt" class="product-image w-full h-full object-cover object-center">
+                        <div class="absolute bottom-0 left-0 w-full p-3 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300 z-10">
+                            <button class="w-full bg-white/90 text-brand-950 font-bold py-2 uppercase text-xs tracking-wider border hover:bg-brand-950 hover:text-white transition">Add to Cart</button>
+                        </div>
+                    </div>
+                    <h3 class="text-base font-bold text-gray-900 group-hover:text-brand-500">Midnight Black T-Shirt</h3>
+                    <p class="text-base font-extrabold text-brand-950 mt-1">Rs. 2,900</p>
+                </div>
+                
+                <!-- Product 2 -->
+                <div class="product-card group cursor-pointer inline-block">
+                    <div class="relative w-full h-[24rem] bg-gray-100 overflow-hidden rounded-sm mb-4">
+                        <img src="assets/images/product2.png" alt="Dress" class="product-image w-full h-full object-cover object-center">
+                        <div class="absolute bottom-0 left-0 w-full p-3 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300 z-10">
+                            <button class="w-full bg-white/90 text-brand-950 font-bold py-2 uppercase text-xs tracking-wider border hover:bg-brand-950 hover:text-white transition">Add to Cart</button>
+                        </div>
+                    </div>
+                    <h3 class="text-base font-bold text-gray-900 group-hover:text-brand-500">Summer Bloom Dress</h3>
+                    <p class="text-base font-extrabold text-brand-950 mt-1">Rs. 4,500</p>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="product-card group cursor-pointer inline-block">
+                    <div class="relative w-full h-[24rem] bg-gray-100 overflow-hidden rounded-sm mb-4">
+                        <img src="assets/images/product3.png" alt="Hoodie" class="product-image w-full h-full object-cover object-center">
+                        <div class="absolute top-3 left-3 bg-red-600 text-white text-xs font-bold px-2 py-0.5 uppercase tracking-wider z-10">Sale</div>
+                        <div class="absolute bottom-0 left-0 w-full p-3 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300 z-10">
+                            <button class="w-full bg-white/90 text-brand-950 font-bold py-2 uppercase text-xs tracking-wider border hover:bg-brand-950 hover:text-white transition">Add to Cart</button>
+                        </div>
+                    </div>
+                    <h3 class="text-base font-bold text-gray-900 group-hover:text-brand-500">Urban Signature Hoodie</h3>
+                    <p class="text-base font-extrabold text-red-600 mt-1">Rs. 4,800</p>
+                </div>
+                
+                <!-- Dummy Product -->
+                 <div class="product-card group cursor-pointer inline-block">
+                    <div class="relative w-full h-[24rem] bg-gray-200 overflow-hidden rounded-sm mb-4">
+                         <div class="w-full h-full flex items-center justify-center text-gray-400 font-bold uppercase tracking-wider">New Design</div>
+                    </div>
+                    <h3 class="text-base font-bold text-gray-900 group-hover:text-brand-500">Classic Denim Jacket</h3>
+                    <p class="text-base font-extrabold text-brand-950 mt-1">Rs. 7,200</p>
+                </div>
+                
+                <!-- Dummy Product -->
+                 <div class="product-card group cursor-pointer inline-block">
+                    <div class="relative w-full h-[24rem] bg-gray-200 overflow-hidden rounded-sm mb-4">
+                         <div class="w-full h-full flex items-center justify-center text-gray-400 font-bold uppercase tracking-wider">Coming Soon</div>
+                    </div>
+                    <h3 class="text-base font-bold text-gray-900 group-hover:text-brand-500">Essential Cargo Pants</h3>
+                    <p class="text-base font-extrabold text-brand-950 mt-1">Rs. 5,000</p>
+                </div>
+                
+                <!-- Dummy Product -->
+                 <div class="product-card group cursor-pointer inline-block">
+                    <div class="relative w-full h-[24rem] bg-gray-200 overflow-hidden rounded-sm mb-4">
+                         <div class="w-full h-full flex items-center justify-center text-gray-400 font-bold uppercase tracking-wider">Incoming</div>
+                    </div>
+                    <h3 class="text-base font-bold text-gray-900 group-hover:text-brand-500">Polo Shirt Classic</h3>
+                    <p class="text-base font-extrabold text-brand-950 mt-1">Rs. 3,500</p>
+                </div>
+            </div>
+
+            <!-- Pagination -->
+            <div class="flex justify-center mt-12 space-x-2">
+                <span class="w-10 h-10 flex items-center justify-center bg-brand-950 text-white font-bold cursor-pointer">1</span>
+                <span class="w-10 h-10 flex items-center justify-center border border-gray-200 hover:bg-gray-50 font-bold cursor-pointer transition">2</span>
+                <span class="w-10 h-10 flex items-center justify-center border border-gray-200 hover:bg-gray-50 font-bold cursor-pointer transition"><i class="fas fa-chevron-right"></i></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-50 pt-20 pb-10 border-t border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center">
+            <h3 class="text-3xl font-black tracking-tighter uppercase text-brand-950 mb-4">Lehan.</h3>
+            <p class="text-gray-400 text-sm">&copy; 2026 Lehan Clothing (Pvt) Ltd. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
