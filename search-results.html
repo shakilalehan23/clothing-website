@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shop | Lehan Clothing</title>
+    <title>Search Results | Lehan Clothing</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -64,10 +64,8 @@
     <!-- Page Header -->
     <div class="bg-gray-50 py-16 border-b border-gray-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h1 class="text-4xl md:text-5xl font-black text-brand-950 uppercase tracking-tight mb-4 fade-in">Our
-                Collection</h1>
-            <p class="text-gray-500 max-w-2xl mx-auto fade-in delay-100">Explore our latest additions. Each piece is
-                crafted with perfection and designed to make a statement.</p>
+            <h1 class="text-4xl md:text-5xl font-black text-brand-950 uppercase tracking-tight mb-4 fade-in">Search Results</h1>
+            <p id="search-query-display" class="text-gray-500 max-w-2xl mx-auto fade-in delay-100">Showing matches for your search query.</p>
         </div>
     </div>
 
@@ -347,6 +345,27 @@
     </footer>
 
     <script src="js/script.js"></script>
+    <script>
+        // Specific logic for search results page
+        document.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const query = urlParams.get('q');
+            if (query) {
+                const searchInput = document.getElementById('search-filter');
+                if (searchInput) {
+                    searchInput.value = query;
+                    // Trigger initial filter to show searched items
+                    if (typeof updateFilters === 'function') {
+                        updateFilters();
+                    }
+                }
+                const queryDisplay = document.getElementById('search-query-display');
+                if (queryDisplay) {
+                    queryDisplay.textContent = `Showing results for "${query}"`;
+                }
+            }
+        });
+    </script>
 </body>
 
 </html>
